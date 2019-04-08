@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)https://readfree.me/?page=2 -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv="Cache-Control" content="no-siteapp">
+        <meta name="renderer" content="webkit">
+        <meta charset="utf-8&quot;">
+        <title>readfree.me</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1, minimal-ui">
+        <meta name="description" content="基于豆瓣和Kindle,电子书推送和下载">
+        <meta name="keywords" content="Douban,Kindle,Duokan,eBook,Read,Free,Push,mobi,免费,阅读,豆瓣,电子书,多看,爱看豆,推送">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta property="qc:admins" content="246446362146255655">
+        <link rel="icon" href="https://readfree.me/static/img/icon24.a5d5cfc437d1.png">
+        <link rel="shortcut icon" href="https://readfree.me/static/img/icon24.a5d5cfc437d1.png">
+        <link rel="stylesheet" type="text/css" href="./readfree.me_files/chosen.min.css">
+        <link rel="stylesheet" type="text/css" href="./readfree.me_files/messenger.css">
+        <link rel="stylesheet" type="text/css" href="./readfree.me_files/messenger-theme-future.css">
+        <link rel="stylesheet" type="text/css" href="./readfree.me_files/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="./readfree.me_files/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./readfree.me_files/bootstrap-responsive.min.css">
+        <link rel="stylesheet" type="text/css" href="./readfree.me_files/main.min.0c2ea697c995.css">
+        
+        <script src="./readfree.me_files/hm.js"></script><script src="./readfree.me_files/jquery.min.js"></script>
+        <script src="./readfree.me_files/underscore-min.js"></script>
+        
+    </head>
+
+    <body>
+        <!--[if IE]>
+        <div class="container">
+        <p class="alert alert-danger">本站不支持一切IE内核的浏览器,为了互联网的进步,请使用Chrome, Firefox, Safari等遵守协议标准的浏览器.</p>
+        </div>
+        <![endif]-->
+        
+
+
+
+
+
+<div class="navbar navbar-fixed-top" id="navbar">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="https://readfree.me/"></a>
+            <ul class="nav pull-right">
+            
+                <li class="nav-item"><a href="https://readfree.me/accounts/settings/topup/"><i class="fa fa-rocket"></i><span class="visible-large">充值</span></a></li>
+                <li class="nav-item"><a href="https://forum.readfree.me/" target="_blank"><i class="fa fa-comments-o" aria-hidden="true"></i><span class="visible-large">论坛</span></a></li>
+                
+                <li class="nav-item "><a href="https://readfree.me/upload/"><i class="fa fa-upload" aria-hidden="true"></i><span class="visible-large">上传</span></a></li>
+                
+                <li class="nav-item ">
+                    <a href="https://readfree.me/notifications/">
+                        <i class="fa fa-bell" aria-hidden="true"></i>
+                        <span class="visible-large">通知</span>
+                        
+                    </a>
+                </li>
+                <li class="dropdown">
+                        <a href="https://readfree.me/?page=2#" class="dropdown-toggle" data-toggle="dropdown" data-original-title="">
+                            <span class="ribbon-wrapper">
+                                <span class="ribbon-wrapper-green"><div class="ribbon-green hidden">Pro</div></span>
+                                <img class="img img-circle avatar-small" title="@samuel001" src="./readfree.me_files/babel.png">
+                            </span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul id="account-dropdown" class="dropdown-menu">
+                            
+                            <li><a href="https://readfree.me/accounts/profile/samuel001/wish/"><i class="fa fa-address-card-o"></i> 档案(@samuel001)</a></li>
+                            <li><a href="https://readfree.me/accounts/profile/samuel001/score/"><i class="fa fa-line-chart"></i> 额度(254)</a></li>
+                            <li><a href="https://readfree.me/accounts/profile/samuel001/invite/"><i class="fa fa-gift"></i> 邀请码</a></li>
+                            <li><a href="https://readfree.me/accounts/settings/push/"><i class="fa fa-cogs"></i> 设置</a></li>
+                            <li class="divider"></li>
+                            <li><a href="https://readfree.me/faq/"><i class="icon-question-sign"></i> 常见问题</a></li>
+                            <li><a href="https://readfree.me/?page=2#wechat-qrcode" role="button" data-toggle="modal"><i class="icon-qrcode"></i> 微信公众号</a></li>
+                            <li><a href="https://forum.readfree.me/" target="_blank"><i class="fa fa-comments-o"></i> 论坛</a></li>
+                            <li class="divider"></li>
+                            <li><a href="https://readfree.me/auth/logout/"><i class="icon-off"></i> 退出</a></li>
+                        </ul>
+                </li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div id="wechat-qrcode" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">readfree 微信公众号</h3>
+  </div>
+  <div class="modal-body">
+    <img class="qrcode" src="./readfree.me_files/wechat.cff4aae8a25e.jpg" alt="wechat: readfree">
+    <p>支持搜索和推送本站书籍. 欢迎试用:)</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">知道啦:)</button>
+  </div>
+</div>
+
+
+        
+        
+        
+
+        
+        <div id="lightbox">
+            <div id="pjax" class="container"></div>
+        </div>
+        
+
+        <div class="loading-container">
+            <div class="loading"></div>
+            <div id="loading-text">loading..</div>
+        </div>
+
+        <div id="container" class="container">
+            
+
+
+
+<form id="main-search-form" class="" action="https://readfree.me/search/" method="get">
+    <input name="q" value="" placeholder="书名|作者|译者|出版社|文件名" type="text">
+    <button class="btn" type="submit">
+        <i class="fa fa-search" aria-hidden="true"></i>
+    </button>
+</form>
+
+<ul class="nav nav-pills">
+    <li class="nav-item active"><a href="https://readfree.me/"><i class="icon-home"></i><span class="visible-large">首页</span></a></li>
+    <li class="nav-item "><a href="https://readfree.me/shuffle/"><i class="icon-random"></i><span class="visible-large">偶遇</span></a></li>
+    <li class="nav-item "><a href="https://readfree.me/psyche/"><i class="icon-heart"></i><span class="visible-large">精华</span></a></li>
+    <li class="nav-item "><a href="https://readfree.me/rank/7/"><i class="icon-fire"></i><span class="visible-large">热门</span></a></li>
+    <li class="nav-item "><a href="https://readfree.me/heros/7/"><i class="icon-list"></i><span class="visible-large">贡献</span></a></li>
+    <li class="nav-item "><a href="https://readfree.me/tags/"><i class="icon-tags"></i><span class="visible-large">标签</span></a></li>
+</ul>
+
+
+<form id="filter-form" class="form-inline" method="post">
+    <input type="hidden" name="csrfmiddlewaretoken" value="AUB1rIW2CfO4su4rlgKSY88cko0KLa4uRZrRpNxR74aHNn4E0W4D9BJAdeJY4EqD">
+    <label for="id_minscore">评分:</label><select name="minscore" id="id_minscore">
+  <option value="" selected="">全部</option>
+
+  <option value="9.5">&gt;=9.5</option>
+
+  <option value="9.0">&gt;=9.0</option>
+
+  <option value="8.5">&gt;=8.5</option>
+
+  <option value="8.0">&gt;=8.0</option>
+
+  <option value="7.5">&gt;=7.5</option>
+
+  <option value="7.0">&gt;=7.0</option>
+
+</select>
+<label for="id_lang">语言:</label><select name="lang" id="id_lang">
+  <option value="" selected="">全部</option>
+
+  <option value="zh">中文</option>
+
+  <option value="en">英文</option>
+
+</select>
+<label for="id_ordering">排序:</label><select name="ordering" id="id_ordering">
+  <option value="upload" selected="">上传</option>
+
+  <option value="score">评分</option>
+
+  <option value="popular">热度</option>
+
+</select>
+    <button type="submit" class="btn btn-mini">
+        <i class="fa fa-refresh" aria-hidden="true"></i>
+    </button>
+</form>
+
+
+
+
+
+
+<ul class="unstyled book-index">
+
+<li class="book-item">
+<div class="well book-card">
+    <div class="book-cover">
+        <a class="pjax" href="https://readfree.me/book/DIY139650/">
+            <img class="book-img img-rounded" src="./readfree.me_files/微信图片_20190408191801.jpg" alt="文学课 (沈从文的实用阅读写作课开讲啦！)">
+        </a>
+    </div>
+    <div class="book-info">
+        <a class="pjax" href="https://readfree.me/book/DIY139650/">
+            文学课 (沈从文的实用阅读写作课开讲啦！)
+        </a>
+        <div class="book-author">
+        <a class="z-link-search" target="_blank" href="http://www.amazon.cn/gp/search?index=books&amp;keywords=%E6%B2%88%E4%BB%8E%E6%96%87%20%E8%91%97%20/%20%E7%B4%AB%E4%BA%91%E6%96%87%E5%BF%83%20%E5%87%BA%E5%93%81&amp;tag=readfreeme-23">沈从文 著 / 紫云文心 出品</a>
+        </div>
+    </div>
+    <div class="book-meta muted">
+        
+        <i class="fa fa-download" title="下载"></i>40
+        <i class="fa fa-paper-plane" title="推送"></i>14
+        <i class="fa fa-comment" title="评论"></i>0
+        
+        <span class="douban">
+        
+        <span class="label label-info">新书</span>
+        
+        
+            <span class="badge badge-success">DIY</span>
+        
+        </span>
+    </div>
+</div>
+</li>
+
+<li class="book-item">
+<div class="well book-card">
+    <div class="book-cover">
+        <a class="pjax" href="https://readfree.me/book/DIY139649/">
+            <img class="book-img img-rounded" src="./readfree.me_files/微信图片_20190408191610.jpg" alt="隐藏的行为：塑造未来的7种无形力量">
+        </a>
+    </div>
+    <div class="book-info">
+        <a class="pjax" href="https://readfree.me/book/DIY139649/">
+            隐藏的行为：塑造未来的7种无形力量
+        </a>
+        <div class="book-author">
+        <a class="z-link-search" target="_blank" href="http://www.amazon.cn/gp/search?index=books&amp;keywords=[%E7%BE%8E]%E6%89%98%E9%A9%AC%E6%96%AF%C2%B7%E7%A7%91%E6%B4%9B%E6%B3%A2%E6%B4%9B%E6%96%AF&amp;tag=readfreeme-23">[美]托马斯·科洛波洛斯</a>
+        </div>
+    </div>
+    <div class="book-meta muted">
+        
+        <i class="fa fa-download" title="下载"></i>35
+        <i class="fa fa-paper-plane" title="推送"></i>8
+        <i class="fa fa-comment" title="评论"></i>0
+        
+        <span class="douban">
+        
+        <span class="label label-info">新书</span>
+        
+        
+            <span class="badge badge-success">DIY</span>
+        
+        </span>
+    </div>
+</div>
+</li>
+
+<li class="book-item">
+<div class="well book-card">
+    <div class="book-cover">
+        <a class="pjax" href="https://readfree.me/book/DIY139648/">
+            <img class="book-img img-rounded" src="./readfree.me_files/微信图片_20190408191249.jpg" alt="月亮全书">
+        </a>
+    </div>
+    <div class="book-info">
+        <a class="pjax" href="https://readfree.me/book/DIY139648/">
+            月亮全书
+        </a>
+        <div class="book-author">
+        <a class="z-link-search" target="_blank" href="http://www.amazon.cn/gp/search?index=books&amp;keywords=[%E8%8B%B1]%E6%AF%94%E5%B0%94%C2%B7%E8%8E%B1%E7%91%9F%E5%B7%B4%E7%BD%97&amp;tag=readfreeme-23">[英]比尔·莱瑟巴罗</a>
+        </div>
+    </div>
+    <div class="book-meta muted">
+        
+        <i class="fa fa-download" title="下载"></i>30
+        <i class="fa fa-paper-plane" title="推送"></i>5
+        <i class="fa fa-comment" title="评论"></i>0
+        
+        <span class="douban">
+        
+        <span class="label label-info">新书</span>
+        
+        
+            <span class="badge badge-success">DIY</span>
+        
+        </span>
+    </div>
+</div>
+</li>
+
+<li class="book-item">
+<div class="well book-card">
+    <div class="book-cover">
+        <a class="pjax" href="https://readfree.me/book/DIY139647/">
+            <img class="book-img img-rounded" src="./readfree.me_files/微信图片_20190408190820.jpg" alt="中国古道：1881韦廉臣夫人从烟台到北京行纪">
+        </a>
+    </div>
+    <div class="book-info">
+        <a class="pjax" href="https://readfree.me/book/DIY139647/">
+            中国古道：1881韦廉臣夫人从烟台到北京行纪
+        </a>
+        <div class="book-author">
+        <a class="z-link-search" target="_blank" href="http://www.amazon.cn/gp/search?index=books&amp;keywords=[%E8%8B%B1]%E4%BC%8A%E8%8E%8E%E8%B4%9D%E6%8B%89%C2%B7%E9%9F%A6%E5%BB%89%E8%87%A3&amp;tag=readfreeme-23">[英]伊莎贝拉·韦廉臣</a>
+        </div>
+    </div>
+    <div class="book-meta muted">
+        
+        <i class="fa fa-download" title="下载"></i>26
+        <i class="fa fa-paper-plane" title="推送"></i>2
+        <i class="fa fa-comment" title="评论"></i>0
+        
+        <span class="douban">
+        
+        <span class="label label-info">新书</span>
+        
+        
+            <span class="badge badge-success">DIY</span>
+        
+        </span>
+    </div>
+</div>
+</li>
+
+<li class="book-item">
+<div class="well book-card">
+    <div class="book-cover">
+        <a class="pjax" href="https://readfree.me/book/27043711/">
+            <img class="book-img img-rounded" src="./readfree.me_files/s29449712.jpg" alt="这样写出好故事">
+        </a>
+    </div>
+    <div class="book-info">
+        <a class="pjax" href="https://readfree.me/book/27043711/">
+            这样写出好故事
+        </a>
+        <div class="book-author">
+        <a class="z-link-search" target="_blank" href="http://www.amazon.cn/gp/search?index=books&amp;keywords=[%E7%BE%8E]%20%E8%A9%B9%E5%A7%86%E6%96%AF%C2%B7%E6%96%AF%E7%A7%91%E7%89%B9%C2%B7%E8%B4%9D%E5%B0%94&amp;tag=readfreeme-23">[美] 詹姆斯·斯科特·贝尔</a>
+        </div>
+    </div>
+    <div class="book-meta muted">
+        
+        <i class="fa fa-download" title="下载"></i>1k+
+        <i class="fa fa-paper-plane" title="推送"></i>789
+        <i class="fa fa-comment" title="评论"></i>15
+        
+        <span class="douban">
+        
+        
+            <span class="badge badge-success" title="豆瓣评分">8.1</span>
+        
+        </span>
+    </div>
+</div>
+</li>
+
+<li class="book-item">
+<div class="well book-card">
+    <div class="book-cover">
+        <a class="pjax" href="https://readfree.me/book/DIY139644/">
+            <img class="book-img img-rounded" src="./readfree.me_files/8435e5dde71190efcc676a64cd1b9d16fcfa60e9.jpg" alt="鐵血名將．霍去病 繁体竖排">
+        </a>
+    </div>
+    <div class="book-info">
+        <a class="pjax" href="https://readfree.me/book/DIY139644/">
+            鐵血名將．霍去病 繁体竖排
+        </a>
+        <div class="book-author">
+        <a class="z-link-search" target="_blank" href="http://www.amazon.cn/gp/search?index=books&amp;keywords=%E6%8E%A9%E5%8D%B7&amp;tag=readfreeme-23">掩卷</a>
+        </div>
+    </div>
+    <div class="book-meta muted">
+        
+        <i class="fa fa-download" title="下载"></i>9
+        <i class="fa fa-paper-plane" title="推送"></i>3
+        <i class="fa fa-comment" title="评论"></i>0
+        
+        <span class="douban">
+        
+        <span class="label label-info">新书</span>
+        
+        
+            <span class="badge badge-success">DIY</span>
+        
+        </span>
+    </div>
+</div>
+</li>
+
+<li class="book-item">
+<div class="well book-card">
+    <div class="book-cover">
+        <a class="pjax" href="https://readfree.me/book/DIY139643/">
+            <img class="book-img img-rounded" src="./readfree.me_files/s3948073.jpg" alt="Financial Economics">
+        </a>
+    </div>
+    <div class="book-info">
+        <a class="pjax" href="https://readfree.me/book/DIY139643/">
+            Financial Economics
+        </a>
+        <div class="book-author">
+        <a class="z-link-search" target="_blank" href="http://www.amazon.cn/gp/search?index=books&amp;keywords=Zvi%20Bodie,Robert%20Merton,David%20Cleeton&amp;tag=readfreeme-23">Zvi Bodie,Rober...</a>
+        </div>
+    </div>
+    <div class="book-meta muted">
+        
+        <i class="fa fa-download" title="下载"></i>7
+        <i class="fa fa-paper-plane" title="推送"></i>1
+        <i class="fa fa-comment" title="评论"></i>0
+        
+        <span class="douban">
+        
+        <span class="label label-info">新书</span>
+        
+        
+            <span class="badge badge-success">DIY</span>
+        
+        </span>
+    </div>
+</div>
+</li>
+
+<li class="book-item">
+<div class="well book-card">
+    <div class="book-cover">
+        <a class="pjax" href="https://readfree.me/book/DIY139642/">
+            <img class="book-img img-rounded" src="./readfree.me_files/cover_aWeICjx.jpg" alt="创新者的任务">
+        </a>
+    </div>
+    <div class="book-info">
+        <a class="pjax" href="https://readfree.me/book/DIY139642/">
+            创新者的任务
+        </a>
+        <div class="book-author">
+        <a class="z-link-search" target="_blank" href="http://www.amazon.cn/gp/search?index=books&amp;keywords=[%E7%BE%8E]%20%E5%85%8B%E8%8E%B1%E9%A1%BF%C2%B7%E5%85%8B%E9%87%8C%E6%96%AF%E5%9D%A6%E6%A3%AE,[%E7%BE%8E]%E6%B3%B0%E8%BF%AA%C2%B7%E9%9C%8D%E5%B0%94,[%E7%BE%8E]%E5%87%AF%E4%BC%A6%C2%B7%E8%BF%AA%E4%BC%A6,[%E7%BE%8E]%E6%88%B4%E7%BB%B4%C2%B7S.%E9%82%93%E8%82%AF&amp;tag=readfreeme-23">[美] 克莱顿·克里斯坦森,[...</a>
+        </div>
+    </div>
+    <div class="book-meta muted">
+        
+        <i class="fa fa-download" title="下载"></i>34
+        <i class="fa fa-paper-plane" title="推送"></i>8
+        <i class="fa fa-comment" title="评论"></i>0
+        
+        <span class="douban">
+        
+        <span class="label label-info">新书</span>
+        
+        
+            <span class="badge badge-success">DIY</span>
+        
+        </span>
+    </div>
+</div>
+</li>
+
+<li class="book-item">
+<div class="well book-card">
+    <div class="book-cover">
+        <a class="pjax" href="https://readfree.me/book/DIY139641/">
+            <img class="book-img img-rounded" src="./readfree.me_files/ims.jpg" alt="变态王子与不笑猫">
+        </a>
+    </div>
+    <div class="book-info">
+        <a class="pjax" href="https://readfree.me/book/DIY139641/">
+            变态王子与不笑猫
+        </a>
+        <div class="book-author">
+        <a class="z-link-search" target="_blank" href="http://www.amazon.cn/gp/search?index=books&amp;keywords=%E7%9B%B8%E4%B9%90%E6%80%BB&amp;tag=readfreeme-23">相乐总</a>
+        </div>
+    </div>
+    <div class="book-meta muted">
+        
+        <i class="fa fa-download" title="下载"></i>1
+        <i class="fa fa-paper-plane" title="推送"></i>0
+        <i class="fa fa-comment" title="评论"></i>0
+        
+        <span class="douban">
+        
+        <span class="label label-info">新书</span>
+        
+        
+            <span class="badge badge-success">DIY</span>
+        
+        </span>
+    </div>
+</div>
+</li>
+
+<li class="book-item">
+<div class="well book-card">
+    <div class="book-cover">
+        <a class="pjax" href="https://readfree.me/book/DIY139640/">
+            <img class="book-img img-rounded" src="./readfree.me_files/cover_0eqjbNI.jpg" alt="经济心理学">
+        </a>
+    </div>
+    <div class="book-info">
+        <a class="pjax" href="https://readfree.me/book/DIY139640/">
+            经济心理学
+        </a>
+        <div class="book-author">
+        <a class="z-link-search" target="_blank" href="http://www.amazon.cn/gp/search?index=books&amp;keywords=%E5%BA%84%E9%94%A6%E8%8B%B1&amp;tag=readfreeme-23">庄锦英</a>
+        </div>
+    </div>
+    <div class="book-meta muted">
+        
+        <i class="fa fa-download" title="下载"></i>13
+        <i class="fa fa-paper-plane" title="推送"></i>4
+        <i class="fa fa-comment" title="评论"></i>0
+        
+        <span class="douban">
+        
+        <span class="label label-info">新书</span>
+        
+        
+            <span class="badge badge-success">DIY</span>
+        
+        </span>
+    </div>
+</div>
+</li>
+
+<li class="book-item">
+<div class="well book-card">
+    <div class="book-cover">
+        <a class="pjax" href="https://readfree.me/book/DIY139639/">
+            <img class="book-img img-rounded" src="./readfree.me_files/cover_qYN36Ss.jpg" alt="健康心理学">
+        </a>
+    </div>
+    <div class="book-info">
+        <a class="pjax" href="https://readfree.me/book/DIY139639/">
+            健康心理学
+        </a>
+        <div class="book-author">
+        <a class="z-link-search" target="_blank" href="http://www.amazon.cn/gp/search?index=books&amp;keywords=%E9%83%AD%E6%88%90,%E8%B5%B5%E5%B0%8F%E4%BA%91&amp;tag=readfreeme-23">郭成,赵小云</a>
+        </div>
+    </div>
+    <div class="book-meta muted">
+        
+        <i class="fa fa-download" title="下载"></i>15
+        <i class="fa fa-paper-plane" title="推送"></i>2
+        <i class="fa fa-comment" title="评论"></i>0
+        
+        <span class="douban">
+        
+        <span class="label label-info">新书</span>
+        
+        
+            <span class="badge badge-success">DIY</span>
+        
+        </span>
+    </div>
+</div>
+</li>
+
+<li class="book-item">
+<div class="well book-card">
+    <div class="book-cover">
+        <a class="pjax" href="https://readfree.me/book/DIY139638/">
+            <img class="book-img img-rounded" src="./readfree.me_files/8cb1cb13495409237c21a0409858d109b3de4940.jpg" alt="我的朋友很少">
+        </a>
+    </div>
+    <div class="book-info">
+        <a class="pjax" href="https://readfree.me/book/DIY139638/">
+            我的朋友很少
+        </a>
+        <div class="book-author">
+        <a class="z-link-search" target="_blank" href="http://www.amazon.cn/gp/search?index=books&amp;keywords=%E5%B9%B3%E5%9D%82%E8%AF%BB&amp;tag=readfreeme-23">平坂读</a>
+        </div>
+    </div>
+    <div class="book-meta muted">
+        
+        <i class="fa fa-download" title="下载"></i>0
+        <i class="fa fa-paper-plane" title="推送"></i>1
+        <i class="fa fa-comment" title="评论"></i>0
+        
+        <span class="douban">
+        
+        <span class="label label-info">新书</span>
+        
+        
+            <span class="badge badge-success">DIY</span>
+        
+        </span>
+    </div>
+</div>
+</li>
+
+<li class="book-item">
+<div class="well book-card">
+    <div class="book-cover">
+        <a class="pjax" href="https://readfree.me/book/DIY139637/">
+            <img class="book-img img-rounded" src="./readfree.me_files/cover_1aZo75g.jpg" alt="管理心理学">
+        </a>
+    </div>
+    <div class="book-info">
+        <a class="pjax" href="https://readfree.me/book/DIY139637/">
+            管理心理学
+        </a>
+        <div class="book-author">
+        <a class="z-link-search" target="_blank" href="http://www.amazon.cn/gp/search?index=books&amp;keywords=%E9%99%88%E5%AD%A6%E5%86%9B,%E4%BD%99%E7%90%9B,%E6%9E%97%E5%BF%97%E7%BA%A2&amp;tag=readfreeme-23">陈学军,余琛,林志红</a>
+        </div>
+    </div>
+    <div class="book-meta muted">
+        
+        <i class="fa fa-download" title="下载"></i>18
+        <i class="fa fa-paper-plane" title="推送"></i>3
+        <i class="fa fa-comment" title="评论"></i>0
+        
+        <span class="douban">
+        
+        <span class="label label-info">新书</span>
+        
+        
+            <span class="badge badge-success">DIY</span>
+        
+        </span>
+    </div>
+</div>
+</li>
+
+<li class="book-item">
+<div class="well book-card">
+    <div class="book-cover">
+        <a class="pjax" href="https://readfree.me/book/DIY139636/">
+            <img class="book-img img-rounded" src="./readfree.me_files/cover_CNsUGlb.jpg" alt="人生正负手">
+        </a>
+    </div>
+    <div class="book-info">
+        <a class="pjax" href="https://readfree.me/book/DIY139636/">
+            人生正负手
+        </a>
+        <div class="book-author">
+        <a class="z-link-search" target="_blank" href="http://www.amazon.cn/gp/search?index=books&amp;keywords=%E5%BE%90%E6%96%87%E7%A7%80&amp;tag=readfreeme-23">徐文秀</a>
+        </div>
+    </div>
+    <div class="book-meta muted">
+        
+        <i class="fa fa-download" title="下载"></i>11
+        <i class="fa fa-paper-plane" title="推送"></i>3
+        <i class="fa fa-comment" title="评论"></i>0
+        
+        <span class="douban">
+        
+        <span class="label label-info">新书</span>
+        
+        
+            <span class="badge badge-success">DIY</span>
+        
+        </span>
+    </div>
+</div>
+</li>
+
+<li class="book-item">
+<div class="well book-card">
+    <div class="book-cover">
+        <a class="pjax" href="https://readfree.me/book/DIY139635/">
+            <img class="book-img img-rounded" src="./readfree.me_files/cover_U817nQo.jpg" alt="创业：放飞你的梦想">
+        </a>
+    </div>
+    <div class="book-info">
+        <a class="pjax" href="https://readfree.me/book/DIY139635/">
+            创业：放飞你的梦想
+        </a>
+        <div class="book-author">
+        <a class="z-link-search" target="_blank" href="http://www.amazon.cn/gp/search?index=books&amp;keywords=%E3%80%90%E7%BE%8E%E3%80%91%E7%BA%A6%E7%BF%B0%C2%B7%E5%A5%87%E6%B3%BD%E5%A7%86&amp;tag=readfreeme-23">【美】约翰·奇泽姆</a>
+        </div>
+    </div>
+    <div class="book-meta muted">
+        
+        <i class="fa fa-download" title="下载"></i>25
+        <i class="fa fa-paper-plane" title="推送"></i>4
+        <i class="fa fa-comment" title="评论"></i>0
+        
+        <span class="douban">
+        
+        <span class="label label-info">新书</span>
+        
+        
+            <span class="badge badge-success">DIY</span>
+        
+        </span>
+    </div>
+</div>
+</li>
+
+<li class="book-item">
+<div class="well book-card">
+    <div class="book-cover">
+        <a class="pjax" href="https://readfree.me/book/DIY126350/">
+            <img class="book-img img-rounded" src="./readfree.me_files/88f39ed4ly1fyq5klfz3tj20bo0fkdi7.jpg" alt="催眠二十八讲">
+        </a>
+    </div>
+    <div class="book-info">
+        <a class="pjax" href="https://readfree.me/book/DIY126350/">
+            催眠二十八讲
+        </a>
+        <div class="book-author">
+        <a class="z-link-search" target="_blank" href="http://www.amazon.cn/gp/search?index=books&amp;keywords=%E7%BE%8E]%E5%A8%81%E5%BB%89%E5%A7%86%C2%B7W.%E5%BA%93%E5%85%8B&amp;tag=readfreeme-23">美]威廉姆·W.库克</a>
+        </div>
+    </div>
+    <div class="book-meta muted">
+        
+        <i class="fa fa-download" title="下载"></i>453
+        <i class="fa fa-paper-plane" title="推送"></i>191
+        <i class="fa fa-comment" title="评论"></i>12
+        
+        <span class="douban">
+        
+        
+            <span class="badge badge-success">DIY</span>
+        
+        </span>
+    </div>
+</div>
+</li>
+
+<li class="book-item">
+<div class="well book-card">
+    <div class="book-cover">
+        <a class="pjax" href="https://readfree.me/book/DIY137922/">
+            <img class="book-img img-rounded" src="./readfree.me_files/s29860013.jpg" alt="人类成功统治地球的秘密：文化如何驱动人类进化并使我们更聪明">
+        </a>
+    </div>
+    <div class="book-info">
+        <a class="pjax" href="https://readfree.me/book/DIY137922/">
+            人类成功统治地球的秘密：文化如何驱动人类进化并使我们更聪明
+        </a>
+        <div class="book-author">
+        <a class="z-link-search" target="_blank" href="http://www.amazon.cn/gp/search?index=books&amp;keywords=[%E7%BE%8E]%E7%BA%A6%E7%91%9F%E5%A4%AB%C2%B7%E4%BA%A8%E9%87%8C%E5%A5%87&amp;tag=readfreeme-23">[美]约瑟夫·亨里奇</a>
+        </div>
+    </div>
+    <div class="book-meta muted">
+        
+        <i class="fa fa-download" title="下载"></i>302
+        <i class="fa fa-paper-plane" title="推送"></i>61
+        <i class="fa fa-comment" title="评论"></i>4
+        
+        <span class="douban">
+        
+        
+            <span class="badge badge-success">DIY</span>
+        
+        </span>
+    </div>
+</div>
+</li>
+
+<li class="book-item">
+<div class="well book-card">
+    <div class="book-cover">
+        <a class="pjax" href="https://readfree.me/book/27623676/">
+            <img class="book-img img-rounded" src="./readfree.me_files/s29661189.jpg" alt="郑天挺西南联大日记">
+        </a>
+    </div>
+    <div class="book-info">
+        <a class="pjax" href="https://readfree.me/book/27623676/">
+            郑天挺西南联大日记
+        </a>
+        <div class="book-author">
+        <a class="z-link-search" target="_blank" href="http://www.amazon.cn/gp/search?index=books&amp;keywords=%E9%83%91%E5%A4%A9%E6%8C%BA,%E4%BF%9E%E5%9B%BD%E6%9E%97%E7%82%B9%E6%A0%A1&amp;tag=readfreeme-23">郑天挺,俞国林点校</a>
+        </div>
+    </div>
+    <div class="book-meta muted">
+        
+        <i class="fa fa-download" title="下载"></i>198
+        <i class="fa fa-paper-plane" title="推送"></i>38
+        <i class="fa fa-comment" title="评论"></i>8
+        
+        <span class="douban">
+        
+        
+            <span class="badge badge-success" title="豆瓣评分">9.0</span>
+        
+        </span>
+    </div>
+</div>
+</li>
+
+<li class="book-item">
+<div class="well book-card">
+    <div class="book-cover">
+        <a class="pjax" href="https://readfree.me/book/DIY139634/">
+            <img class="book-img img-rounded" src="./readfree.me_files/cover_xTwjEv1.jpg" alt="懂法律，成交更简单">
+        </a>
+    </div>
+    <div class="book-info">
+        <a class="pjax" href="https://readfree.me/book/DIY139634/">
+            懂法律，成交更简单
+        </a>
+        <div class="book-author">
+        <a class="z-link-search" target="_blank" href="http://www.amazon.cn/gp/search?index=books&amp;keywords=%E6%B8%B8%E6%A3%AE%E7%84%B6&amp;tag=readfreeme-23">游森然</a>
+        </div>
+    </div>
+    <div class="book-meta muted">
+        
+        <i class="fa fa-download" title="下载"></i>17
+        <i class="fa fa-paper-plane" title="推送"></i>2
+        <i class="fa fa-comment" title="评论"></i>0
+        
+        <span class="douban">
+        
+        <span class="label label-info">新书</span>
+        
+        
+            <span class="badge badge-success">DIY</span>
+        
+        </span>
+    </div>
+</div>
+</li>
+
+<li class="book-item">
+<div class="well book-card">
+    <div class="book-cover">
+        <a class="pjax" href="https://readfree.me/book/DIY113027/">
+            <img class="book-img img-rounded" src="./readfree.me_files/1019154898.txt.jpg" alt="大浪潮：崛起的发展中世界">
+        </a>
+    </div>
+    <div class="book-info">
+        <a class="pjax" href="https://readfree.me/book/DIY113027/">
+            大浪潮：崛起的发展中世界
+        </a>
+        <div class="book-author">
+        <a class="z-link-search" target="_blank" href="http://www.amazon.cn/gp/search?index=books&amp;keywords=%E3%80%90%E7%BE%8E%E3%80%91%E6%96%AF%E8%92%82%E8%8A%AC%C2%B7%E6%8B%89%E5%BE%B7%E5%8B%92&amp;tag=readfreeme-23">【美】斯蒂芬·拉德勒</a>
+        </div>
+    </div>
+    <div class="book-meta muted">
+        
+        <i class="fa fa-download" title="下载"></i>230
+        <i class="fa fa-paper-plane" title="推送"></i>45
+        <i class="fa fa-comment" title="评论"></i>22
+        
+        <span class="douban">
+        
+        
+            <span class="badge badge-success">DIY</span>
+        
+        </span>
+    </div>
+</div>
+</li>
+
+<div class="clearfix"></div>
+</ul>
+
+
+
+
+
+<div class="pagination pagination-centered">
+    <ul>
+        
+        <li><a title="上一页" href="https://readfree.me/?page=1">«</a></li>
+        
+
+        
+            
+                <li class="hidden-phone"><a href="https://readfree.me/?page=1">1</a></li>
+            
+        
+            
+                <li class="active"><span>2</span></li>
+            
+        
+            
+                <li class="hidden-phone"><a href="https://readfree.me/?page=3">3</a></li>
+            
+        
+            
+                <li class="hidden-phone"><a href="https://readfree.me/?page=4">4</a></li>
+            
+        
+            
+                <li class="hidden-phone"><a href="https://readfree.me/?page=5">5</a></li>
+            
+        
+            
+                <li class="hidden-phone"><a href="https://readfree.me/?page=6">6</a></li>
+            
+        
+            
+                <li class="hidden-phone"><a href="https://readfree.me/?page=7">7</a></li>
+            
+        
+            
+                <li class="hidden-phone"><span>...</span></li>
+            
+        
+
+        
+        <li><a title="下一页" href="https://readfree.me/?page=3">»</a></li>
+        
+        <form id="go-to" class="form-inline pull-right" action="https://readfree.me/?page=2" method="get">
+            <input class="input-mini" id="id_goto" name="page" type="number" min="1" max="5969" value="4956">
+            <button type="submit" class="btn btn-small">
+                <i class="icon-random"></i>
+            </button>
+        </form>
+    </ul>
+</div>
+
+
+
+
+        </div>
+        <div id="footer">
+
+
+<div class="container text-center">
+    <ul class="inline">
+        <li><a target="_blank" href="https://readfree.me/faq/">常见问题</a></li>
+        <li><a href="https://readfree.me/donate/">捐助本站</a></li>
+        <li>
+            
+            <a target="_blank" href="https://readfree.me/contact/">联系站长</a>
+            
+        </li>
+        <li><a target="_blank" href="https://forum.readfree.me/">访问论坛</a></li>
+        <li><a target="_blank" href="https://github.com/Ovilia/readfree-chrome-extension">豆瓣插件</a></li>
+        <li><a target="_blank" href="https://www.amazon.cn/b?node=1935454071&amp;tag=readfreeme-23">玩转Kindle</a></li>
+    </ul>
+</div>
+
+</div>
+
+        <script src="./readfree.me_files/chosen.jquery.min.js"></script>
+        <script src="./readfree.me_files/jquery.pjax.min.js"></script>
+        <script src="./readfree.me_files/messenger.min.js"></script>
+        <script src="./readfree.me_files/messenger-theme-future.js"></script>
+        <script src="./readfree.me_files/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            var g_url_back = '/';
+            var g_url_wish = '/edition/wish/';
+            var g_url_push = '/edition/push/';
+            var g_show_ads = 1;
+        </script>
+        <script src="./readfree.me_files/main.77b62b875c2f.js"></script>
+        
+        <script>
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?375aa6d601368176e50751c1c6bf0e82";
+              var s = document.getElementsByTagName("script")[0];
+              s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+    
+
+</body></html>
