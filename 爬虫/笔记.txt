@@ -1,0 +1,30 @@
+1、Headless Chrome
+    无头谷歌浏览器，无界面谷歌浏览器
+    因为phantomjs现在
+    
+2、requests
+    用来做什么 和urllib一致
+    get请求
+    定制头部
+        data是一个字典
+        requests.get(url, headers = headers, params=data)
+        r.text 字符串形式查看响应
+        r.content 字节类型查看响应
+        r.encoding 查看或者设置编码类型
+        r.status_code 查看状态码
+        r.headers 查看响应头部
+        r.url 查看所有请求的url
+    post请求
+        bing 翻译
+        formdata是一个原生字典
+        requests.post(url, headers= headers, data = formdata)
+    ajax、get、post
+        和上面一样
+    代理
+        proxies = {'http' : '121.41.171.223:3128',}
+        r = requests.get(url, headers = headers, proxies = proxy)
+    cookie
+        
+    添加头部
+
+
