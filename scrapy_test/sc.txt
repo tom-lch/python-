@@ -1,0 +1,49 @@
+爬虫步骤
+
+命令
+Usage:
+  scrapy <command> [options] [args]
+
+  Available commands:
+  bench         Run quick benchmark test
+  fetch         Fetch a URL using the Scrapy downloader
+  genspider     Generate new spider using pre-defined templates
+  runspider     Run a self-contained spider (without creating a project)
+  settings      Get settings values
+  shell         Interactive scraping console
+  startproject  Create new project
+  version       Print Scrapy version
+  view          Open URL in browser, as seen by Scrapy
+
+  入门案例
+  创建项目
+    scrapy startproject mySpider
+
+    scrapy genspider 爬虫名 '网址'
+
+Item Pipeline
+ 应用：
+    1、验证爬虫的数据
+    2、查重（并丢弃）
+    3、将爬取的结果保存到文件或数据库中
+    class ItcastPipeline(object):
+    def __init__(self):
+    #可以选实现，做参数初始化
+        pass
+    def process_item(self, item, spider):
+    #item对象，爬取的item
+    #spider 爬取该item的spider
+    #这个方法必须实现，每个item pipeline组建都需要调用该方法
+    #这个方法必须返回一个item对象，被丢弃的item将不会被之后的pipeline组件处理
+        pass
+    def open_spider(selfm spider):
+    #spider 被开启的spider
+    #可选实现，单反spider开启时，这个方法被调用
+        pass
+    def close_sipder(self, spider):
+    #spider 被关闭的spider
+    #可选实现，当spider被关闭时，这个方法被调用
+        pass
+
+scrapy shell
+
