@@ -1,0 +1,155 @@
+一、操作数据库
+1、创建数据库
+    语法：use 数据库名
+    注意：如果数据库不存在则创建数据库，否则切换到指定的数据库
+    注意：如果刚刚创建的和数据库不在列表内
+        db.student.insert({name:"tom", age:18, gender:1, address:"北京", isDelete:0})
+2、查看所有数据库
+    show dbs
+3、查看当前正在使用的数据库
+    db
+    db.getName()
+4、断开连接
+    exit()
+5、查看命令api
+    help
+6、删数据库
+    db.dropDatabase()
+二、集合操作
+1、查看当前数据库下雨哪些集合
+    show collections
+2、创建集合
+    a、语法 db.createCollection("集合名")
+    例子 db.createCollection("class")
+    b、语法 db.集合名.insert(document) 不存在则建立，存在则插入
+    db.student.insert({name:"tom", age:18, gender:1, address:"北京", isDelete:0})
+    区别：a创建的是一个空的集合，b创建一个集合并插入一个文档
+
+3、删除当前数据库中的集合
+    语法 db.集合名.drop()
+    例子 db.class.drop()
+三、文档的操作
+1、插入文档
+    a、使用insert()方法插入
+    语法：db.集合名.insert(document) document={'':''}是个字典
+    插入多个
+    db.集合.insert([document1, document2...])
+    b、使用save()方法插入文档
+    语法：db.集合名.save(document)
+    说明：如果不指定_id字段，save()方法类似于insert()方法
+    如果指定_id字段，则会更新_id字段的数据
+    db.集合名.save(document) document = {id:ObjectId(sfdf), ...}
+
+
+2、文档更新
+    a、update()方法用于更新已存在的文档
+    db.集合名.update(
+        query, 
+        update,
+        {
+            upset:boolean,
+            multi:boolean,
+            writeConcern:document
+        }
+    )
+    例子 全改 db.student.update({name:'lili'},{$set:{age:26}})
+    累加 db.student.update({name:'uon'},{$inc:{age:26}})
+    query:update的查询条件，类似于spl里的update语句内的where
+    update的对象和一些更新的操作符($set,$inc)等，$set直接更新，$inc在源有的基础上累加后更新
+    upset：可选，如果不存在update的记录，是否当新数据插入，true为插入，false为不插入，默认false
+    multi：可选，mongodb默认是false，如果只更新一个找到的第一条记录，如果这个参数是true，按照条件查找出来的数据全部更新
+    writeConcern: 可选，抛出异常的级别
+
+    b、 save()方法通过传入的文档替换以前的文档（未更新
+    语法：db.集合名.save(
+        document,
+        {
+            writeConcern(document)
+        }
+    )
+    document 文档数据
+    writeConcern 可选，抛出异常的级别
+3、文档删除
+    说明：在执行remove()函数前，限制性find()命令来判断执行的条件时候存在是个好习惯
+    语法：db.集合名.remove(
+        query,
+        {
+            justOne: boolean,
+            writeConcern: document
+        }
+    )
+    参数说明：
+    query: 可选，删除的文档的条件
+    justOne：可选，如果是true或1，则只删除一个文档，否则删除所有文档
+    writeConcern: 可选，抛出异常的级别
+4、文档查询
+    a、find()方法
+    查询集合下的所有的文档（数据）
+    语法：db.集合名.find()
+    查询集合下所有的数据
+    b、查询指定列
+    语法：db.集合名.find(
+        query,
+        {
+            列1:1,
+            列2:1
+        }
+    )
+    query 查询条件，key要显示的字段，1显示
+    例子 db.student.find({gender:0}, {address:"北京”})
+    c、pretty()方法以格式化的方式来显示文档
+    例子：db.student.find().pretty()
+    d、findOne()方法查询匹配结果的第一条数据
+    例子 db.student.findOne({gender:1})
+5、查询条件操作符
+    条件操作符用于比较两个表达式，并从mongodb集合中获取数据
+    a、大于 $gt 
+    db.集合名.find({key:{$gt:value}})
+    db.student.find({age:{$gt:40}})
+    b、大于等于 $gte   
+    db.集合名.find({key:{$gte:value}})
+    c、小于 $lt
+    db.集合名.find({key:{$lt:value}})
+    d、小于等于 $lte
+    db.集合名.find({key:{$lte:value}})
+    e、大于等于 和 小于等于 $gte 和 $lte
+    db.集合名.find({key:{$gte:value, $lte:value}})
+    f、等于 
+    db.集合名.find({key:value})
+    g、使用_id进行查询
+    语法
+    db.student.find({_id:ObjectId("5cb5a08f31921b530cb9bd5e")})
+    h、查询某个结果的数据条数
+    db.student.find().count()
+    i、查询某个字段的值当中是否包含另一个值
+    db.student.find({name:/li/})
+    j、查询谋个字段的值是否已另一个值开头
+    db.student.find({name:/^li/})
+6、条件查询 and和or
+    a、AND条件
+    db.集合名.find({条件1，条件2，.....})
+    db.student.find({gerder:1, age:{$gt:25}})
+    b、OR条件
+    db.集合名.find(
+        {
+            $or:[条件1, 条件2, ......]
+        }
+    )
+    c、AND和OR联合使用
+    db.集合名.find(
+        {
+            条件1，条件2,.....
+            $or:[{条件3}, {条件4}, ......]
+        }
+    )
+7、limit和skip
+    a、limit()读取指定数量的记录
+    db.student.find().limit(2)
+    b、skip()跳过指定数量的数据
+    db.student.find().skip(2)
+    c、limit和skip联合使用
+    实现分页功能
+    db.student.find().skip(1).limit(2)
+8、排序
+    db.集合名.find().sort({key:1或-1}) 
+    db.student.find().sort({age:1})

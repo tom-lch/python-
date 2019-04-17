@@ -1,0 +1,426 @@
+mysql
+mangodb
+redis
+
+mysql 关系型数据库
+一、如何使用总段操作数据库
+1、登录数据库服务器
+  mysql -u root -p 输入口令
+2、如何查询数据库中的数据
+  mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| test               |
++--------------------+
+3、如何选中一个数据库进行操作
+mysql> select * from admin;
+ERROR 1064 (42000)
+
+mysql> use test
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+SQL语句中的查询
+mysql> select * from admin;
+mysql> select * from where admin_ID=1;
+4、如何退出数据库命令
+mysql> exit;
+5、如何在数据库服务器中创建数据库
+mysql> create database test1;
+6、如何查看数据库中的数据表
+mysql> use test1
+Database changed
+mysql> show tables;
+Empty set (0.00 sec)
+如何创建一个数据表
+create table put(name varchar(20),owner varchar(20), species varchar(20), sex CHAR(1), birth DATE, death DATE); 
+mysql> create table put(name varchar(20),owner varchar(20), species varchar(20), sex CHAR(1), birth DATE, death DATE); 
+Query OK, 0 rows affected (0.03 sec)
+查看数据表是否创建成功
+mysql> show tables;
+mysql> describe put;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| name    | varchar(20) | YES  |     | NULL    |       |
+| owner   | varchar(20) | YES  |     | NULL    |       |
+| species | varchar(20) | YES  |     | NULL    |       |
+| sex     | char(1)     | YES  |     | NULL    |       |
+| birth   | date        | YES  |     | NULL    |       |
+| death   | date        | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+如何查看表中的记录
+mysql> select * from put;
+Empty set (0.00 sec)
+
+如何添加数据记录
+mysql-> insert into put
+mysql> insert into put values ('oiuj', 'asddc', 'fgsg', 'f', '1990-12-23', NULL);
+Query OK, 1 row affected (0.00 sec)
+
+再一次查询
+mysql> select * from put;
++------+-------+---------+------+------------+-------+
+| name | owner | species | sex  | birth      | death |
++------+-------+---------+------+------------+-------+
+| oiuj | asddc | fgsg    | f    | 1990-12-23 | NULL  |
++------+-------+---------+------+------------+-------+
+1 row in set (0.00 sec)
+
+mysql支持哪些数据类型
+
+create table testType(
+    number TINYING
+);
+TINYINT	1 字节	(-128，127)	(0，255)	小整数值
+SMALLINT	2 字节	(-32 768，32 767)	(0，65 535)	大整数值
+MEDIUMINT	3 字节	(-8 388 608，8 388 607)	(0，16 777 215)	大整数值
+INT或INTEGER	4 字节	(-2 147 483 648，2 147 483 647)	(0，4 294 967 295)	大整数值
+BIGINT	8 字节	(-9,223,372,036,854,775,808，9 223 372 036 854 775 807)	(0，18 446 744 073 709 551 615)	极大整数值
+FLOAT	4 字节	(-3.402 823 466 E+38，-1.175 494 351 E-38)，0，(1.175 494 351 E-38，3.402 823 466 351 E+38)	0，(1.175 494 351 E-38，3.402 823 466 E+38)	单精度
+浮点数值
+DOUBLE	8 字节	(-1.797 693 134 862 315 7 E+308，-2.225 073 858 507 201 4 E-308)，0，(2.225 073 858 507 201 4 E-308，1.797 693 134 862 315 7 E+308)	0，(2.225 073 858 507 201 4 E-308，1.797 693 134 862 315 7 E+308)	双精度
+浮点数值
+DECIMAL	对DECIMAL(M,D) ，如果M>D，为M+2否则为D+2	依赖于M和D的值	依赖于M和D的值	小数值
+
+数据类型应该如何选择
+日期、选择安装格式
+数值和字符串按照大小
+
+类型	大小
+(字节)	范围	格式	用途
+DATE	3	1000-01-01/9999-12-31	YYYY-MM-DD	日期值
+TIME	3	'-838:59:59'/'838:59:59'	HH:MM:SS	时间值或持续时间
+YEAR	1	1901/2155	YYYY	年份值
+DATETIME	8	1000-01-01 00:00:00/9999-12-31 23:59:59	YYYY-MM-DD HH:MM:SS	混合日期和时间值
+TIMESTAMP	4	
+1970-01-01 00:00:00/2038
+
+结束时间是第 2147483647 秒，北京时间 2038-1-19 11:14:07，格林尼治时间 2038年1月19日 凌晨 03:14:07
+
+YYYYMMDD HHMMSS	混合日期和时间值，时间戳
+
+类型	大小	用途
+CHAR	0-255字节	定长字符串
+VARCHAR	0-65535 字节	变长字符串
+TINYBLOB	0-255字节	不超过 255 个字符的二进制字符串
+TINYTEXT	0-255字节	短文本字符串
+BLOB	0-65 535字节	二进制形式的长文本数据
+TEXT	0-65 535字节	长文本数据
+MEDIUMBLOB	0-16 777 215字节	二进制形式的中等长度文本数据
+MEDIUMTEXT	0-16 777 215字节	中等长度文本数据
+LONGBLOB	0-4 294 967 295字节	二进制形式的极大文本数据
+LONGTEXT	0-4 294 967 295字节	极大文本数据
+
+如何删除数据
+mysql-> delete from put where name='odfgiuj'
+Query OK, 1 row affected (0.01 sec)
+
+如何修改
+updata put set name="oiuj" where owner="asddgfdc";
+常见操作：
+增加
+insert
+删除
+delect
+修改
+updata
+查询
+select
+
+mysql建表约束
+1、主键约束
+它能够唯一确认一张表中的记录，也就是我们可以通过给某个字段添加约束，就可以使得该字段不重复切不为空
+create table user(id int primary key, name varchar(20));
+mysql> describe user;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | NO   | PRI | NULL    |       |
+| name  | varchar(20) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+insert into user values(1, '张三');
+可以唯一的确定一条记录
+联合主键
+只要联合的主键加起来不重复就可以
+create table user2(id int, name varchar(20), password varchar(20), primary key(id, name));
+mysql> create table user2(id int, name varchar(20), password varchar(20), primary key(id, name));
+Query OK, 0 rows affected (0.02 sec)
+insert into user2 values(2, 'qq', '234');
+2、自增约束
+create table user3(
+    id int primary key auto_increment,
+    name varchar(20)
+);
+insert into user3 (name) values('zhanga');
+ mysql>  select * from user3
+    -> ;
++----+--------+
+| id | name   |
++----+--------+
+|  1 | zhanga |
++----+--------+
+1 row in set (0.00 sec)
+如果说我们创建表的时候，网际创建主键约束，怎么办？
+create table user4(
+    id int, 
+    name varchar(20)
+);
+修改表结构，添加主键
+alter table user4 add primary key(id);
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | NO   | PRI | NULL    |       |
+| name  | varchar(20) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+如何删除
+alter table user4 drop primary key;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | NO   |     | NULL    |       |
+| name  | varchar(20) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+使用modify修改字段添加约束
+alter table user4 modify id int primary key;
+mysql> desc user4;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | NO   | PRI | NULL    |       |
+| name  | varchar(20) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+4、唯一约束
+约束修饰的字段的值不可以重复
+表示两个键在一起不重复
+create table user5(
+    id int,
+    name varchar(20)
+);
+添加唯一约束
+alter table user5 add unique(name);
+insert into user5 values(1, 'zhang');
+insert into user5 values(1, 'lili');
+create table user6(
+    id int,
+    name varchar(20),
+    unique(name)
+);
+create table user7(
+    id int,
+    name varchar(20) unique
+);
+create table user8(
+    id int,
+    name varchar(20),
+    unique(id, name)
+);
+insert into user8 values(1, 'zhang');
+insert into user8 values(2, 'lili');
+删除唯一约束
+mysql> alter table user6 drop index name;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+add modify 都可以添加
+5、非空约束
+修饰的字段不能为空,为空就会出错
+create table user9(
+    id int,
+    name varchar(20) not null
+);
+mysql> insert into user9 values(1);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+insert into user9 (name) values('list');
+6、默认约束
+插入字段值得时候没有传参数，会使用默认值
+create table user10(
+    id int, 
+    name varchar(20), 
+    age int default 10
+);
+insert into user10 values(1, 'zhansan', 19);
+mysql> insert into user10 (id, name) values(1, 'zhansasasan');
+
+传了值就不会使用默认值
+3、外键约束
+涉及到两个表：父表、子表
+主表、副表
+create table classes(
+    id int primary key,
+    name varchar(20)
+);
+学生表
+create table students(
+    id int primary key,
+    name varchar(20),
+    class_id int,
+    foreign key(class_id) references classes(id)
+);
+insert into classes values(1, 'yi');
+insert into classes values(2, 'er');
+insert into classes values(3, 'sa');
+insert into classes values(4, 'si');
+
+insert into students values(1001, 'san',1);
+insert into students values(1002, 'san',2);
+insert into students values(1003, 'san',3);
+insert into students values(1004, 'san',4);
+insert into students values(1005, 'san',5);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`test`.`students`, CONSTRAINT `students_ibfk_1` FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`))
+mysql> 
+主表（父表）classes中没有的数据值，在副表（子表）中是不可以使用的
+主表中的记录被副表引用，是不可以被删除的
+
+数据库的三大设计范式
+1、第一范式
+  1NF
+  数据表中的所有字段都是不可分割的原子值
+  字段值还可以继续拆分的就不满足第一范式
+  范式，设计的越详细，对某些实际的操作可能更好，但是不一定都是好处
+create table student2(
+    id int primary key,
+    name varchar(20),
+    address varchar(30)
+);
+insert into student2 values(1, 'tom', 'okmqws');
+insert into student2 values(2, 'ef', 'qaazzokmqws');
+insert into student2 values(3, 'todfhawewem', 'bbberokmqws');
+
+create table student3(
+    id int primary key,
+    name varchar(20),
+    country varchar(30),
+    provence varchar(30),
+    datails varchar(30) default 'null'
+);
+insert into student3 values(1, 'tom', 'china', 'sic');
+insert into student3 values(2, 'ef', 'china', 'afd');
+insert into student3 values(3, 'todem', 'china', 'aa');
+第二范式
+必须满足第一范式的前提下，第二范式要求，除主键外的每一列都必须完全依赖于主键
+如果要出现不完全依赖，只可能发生联合主键的情况下
+
+create table myorders(
+    product_id int,
+    customer_id int,
+    product_name varchar(20),
+    customer_name varchar(20),
+    primary key(product_id, customer_id)
+);
+
+问题？
+除主键以外的其他列，只依赖于主键的部分字段
+拆表
+create table myorders(
+    order_id int primary key,
+    product_id int,
+    customer_id int
+);
+create table product(
+    id int primary key,
+    name varchar(20)
+);
+create table customer(
+    id int primary kry;
+    name varchar(20)
+);
+第三范式
+必须先满足第二范式，除开主键列的其他列之间不能有传递依赖关系。
+不能有传递依赖
+create table mtorder(
+    order_id int primary key,
+    product_id int, 
+    customer_id int
+);
+
+create table customer(
+    id int primary key,
+    name varchar(20),
+    phone varchar(15)
+);
+
+
+练习：
+学生表
+Student：学号、姓名、性别、出生年月日、所在班级
+create table student(
+    sno varchar(20) primary key,
+    sname varchar(20) not null,
+    ssex varchar(10) not null,
+    sbirthday datetime,
+    class varchar(20)
+);
+Teacher: 教师编号、教师名字、性别、出生日期、学历、职称、所在部门
+create table teacher(
+    tno varchar(20) primary key,
+    tname varchar(20) not null,
+    tsex varchar(10) not null,
+    tbirthday datetime,
+    prof varchar(20) not null,
+    dapart varchar(20) not null
+);
+课程表
+Course: 课程号、课程名称、教室编号
+create table course(
+    cno varchar(20) primary key,
+    cname varchar(20) not null,
+    tno varchar(20) not null,
+    foreign key(tno) references teacher(tno)
+);
+成绩表：
+Score: 学号、课程号、成绩
+create table score(
+    sno varchar(20) not null,
+    cno varchar(20) not null,
+    dgree decimal,
+    foreign key(sno) references student(sno),
+    foreign key(cno) references course(cno),
+    primary key(sno, cno)
+);
+往数据表中添加数据
+
+insert into student values('101', 'TOM', 'F', '1990-12-04', '95033');
+insert into student values('102', 'default', 'F', '1997-12-04', '95033');
+insert into student values('103', 'sfg', 'm', '1940-12-04', '95033');
+insert into student values('104', 'students_ibfk_1', 'F', '1990-12-04', '95033');
+insert into student values('105', 'TO3rM', 'm', '1995-12-04', '95033');
+insert into student values('106', 'hj', 'm', '1996-12-04', '95033');
+
+
+insert into teacher values('801', 'hj', 'm', '1946-12-04', 'zhuj', 'sqec');
+insert into teacher values('802', 'ewrhj', 'f', '1936-12-04', 'zrehuj', 'q4sc');
+insert into teacher values('803', 'ythj', 'f', '1995-12-04', 'zhyuj', 's34c');
+insert into teacher values('804', 'uyhj', 'm', '1996-12-04', 'zhwuj', '34sc');
+insert into teacher values('805', 'hadj', 'm', '1997-12-04', 'zhuj', 's46c');
+insert into teacher values('806', 'hafsj', 'f', '1992-12-04', 'zqthuj', 's58c');
+insert into teacher values('807', 'sghj', 'm', '1992-12-04', 'zhyuj', 'safc');
+insert into teacher values('808', 'gcbhj', 'f', '1996-12-04', 'zhuuj', 'sgc');
+
+insert into course values('3-105', 'fer', '803');
+insert into course values('3-4505', 'ftr', '801');
+insert into course values('3-705', 'feetyr', '806');
+insert into course values('2-105', 'fjhser', '802');
+insert into course values('7-105', 'fesgrtr', '807');
+insert into course values('1-105', 'ferygr', '805');
+
+insert into score values('101', '3-105', '88');
+insert into score values('102', '3-105', '88');
+insert into score values('103', '3-105', '83');
+insert into score values('104', '3-105', '85');
+insert into score values('105', '3-105', '68');
+insert into score values('106', '3-105', '87');
+
+insert into score values('101), '3-105', '88');
