@@ -14,7 +14,7 @@ BOT_NAME = 'Jav'
 SPIDER_MODULES = ['Jav.spiders']
 NEWSPIDER_MODULE = 'Jav.spiders'
 MONGO_URI = 'localhost:27017'
-MONGO_DATABASE = 'Jav'
+MONGO_DATABASE = 'Jav2'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'Jav (+http://www.yourdomain.com)'
 USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36'

@@ -11,8 +11,8 @@ import scrapy
 class JavItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    veido_name = scrapy.Field()
-    veido_poster = scrapy.Field()
+    video_name = scrapy.Field()
+    video_poster = scrapy.Field()
     actor_mash = scrapy.Field()
     actor_time = scrapy.Field()
     vedio_time = scrapy.Field()
